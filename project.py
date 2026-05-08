@@ -51,9 +51,9 @@ class Portfolio:
         self.stocks.append(stock)
     def display(self):
         print("+ + + Nepse portfolio + + +")
-        print("=" * 40)
-        print(f"{'SYMBOL':<10}{'WACC':<10}{'LTP':<10}{'P/L':<10} ")
-        print("=" * 40)
+        print("=" * 50)
+        print(f"{'SYMBOL':<10}{'Quantity':<10}{'WACC':<10}{'LTP':<10}{'P/L':<10} ")
+        print("=" * 50)
 
         #initially the value is 0
         total_inv=0
@@ -74,9 +74,10 @@ class Portfolio:
         print(f"Overall Profit:   Rs. {overall_pl:.2f}") 
 if __name__=="__main__":
     my_portfolio=Portfolio()#portfolio is a class my portfolio is an object
-    my_portfolio.add_stock(Stock("SMHL",100,525))
+    my_portfolio.add_stock(Stock("SMHL",100,300))
     my_portfolio.display()
 
 #ERROR OCCURED WHILE DOING THIS PROGRAM
+
  #1.indentation 
  #2.syntax
