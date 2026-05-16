@@ -16,3 +16,49 @@ def check_winner(board):
     if " " not in board:
         return "tie"
     return None
+
+#checks if the required position is empty.If empty puts O,X accordingly.
+def make_move(board,position,player):
+    if board[position]==" ":
+        board[position]=player
+        return True
+    return False
+def human_move(board):
+    while True:
+        try:
+            pos=int(input("Enter position[1-9]"))-1
+            if 0<=pos <=8 and board[pos]==" ":
+                return pos
+            else:
+                print("Invalid or occupied")
+        except ValueError:
+            print("Enter a number.")
+def minimax(board,is_maximizing):
+    winner=check_winner(board)
+    if winner =="O":
+        return 10
+    elif winner=="X":
+        return -10
+    elif winner =="tie":
+        return 0
+    if is_maximizing:
+        best_score=-float("inf")
+        #loop through all 9 positioin
+        for i in range(9):
+            if board == " ":
+                board[i]="O"
+                score=minimax(board,False)
+                board[i]=" "
+                best_score=max(score,best_score)
+        return best_score
+    else:
+        best_score=float("inf")
+        for i in range(9):
+            if board[i]==" ":
+                board[i]=="X"
+                score=minimax(board,True)
+                board[i]==" "
+                best_score=min(score,best_score)
+        return best_score 
+    
+
