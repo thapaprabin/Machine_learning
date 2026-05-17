@@ -59,6 +59,21 @@ def minimax(board,is_maximizing):
                 score=minimax(board,True)
                 board[i]==" "
                 best_score=min(score,best_score)
-        return best_score 
+        return best_score
+def ai_move(board):
+    best_score=-float("inf")
+    best_move=None
+    for i in range(9):
+        if board[i]==" ":
+            board[i]="O"
+            score=minimax(board,False)
+            board[i]=" "
+            if score > best_score:
+                best_score=score
+                best_move=1
+    return best_move
+
+
+
     
 
