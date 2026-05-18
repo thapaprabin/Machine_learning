@@ -72,7 +72,32 @@ def ai_move(board):
                 best_score=score
                 best_move=1
     return best_move
-
+def play_game():
+    board=[" "]*9
+    print("You are  X and AI is O.Positions (1-9)")
+    print_board(board)
+    while True:
+        pos=human_move(board)
+        make_move(board,pos,"X")
+        print_board(board)
+        winner=check_winner(board)
+        if winner:
+            break
+        print("AI is thinking...")
+        pos=ai_move(board)
+        make_move(board,pos,"O")
+        print(f"AI chose position{pos+1}")
+        print_board(board)
+        winner=check_winner(board)
+        if winner:
+            break
+    if winner=="X":
+        print("You won !")
+    elif winner=="O":
+        print("AI won")
+    else:
+        print("It's a tie ")
+play_game()
 
 
     
